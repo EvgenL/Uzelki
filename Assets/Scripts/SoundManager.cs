@@ -32,7 +32,7 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource _source;
 
-    public float PlaySound(string _name, ulong delay = 0)
+    public float PlaySound(string _name)
     {
         foreach (var s in _sounds)
         {
@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
                 _source.volume = s.Volume;
                 AudioClip clip = s.GetClip();
                 _source.clip = clip;
-                _source.Play(delay * 44100);
+                _source.Play();
                 return clip.length;
             }
         }

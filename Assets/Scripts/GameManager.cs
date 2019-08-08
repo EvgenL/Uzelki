@@ -137,16 +137,18 @@ public class GameManager : MonoBehaviour
         if (_score == 1)
         {
             SoundManager.Instance.PlaySound("Правильно первый");
+            return;
         }
-        else if (_score >= _targetLetters.Length)
+        if (_score >= _targetLetters.Length)
         {
             Win();
         }
 
-        else if (Random.Range(0, 2) == 0)
+        SoundManager.Instance.PlaySound(letter.ToString().ToLower());
+
+        if (Random.Range(0, 3) == 0)
         {
-            SoundManager.Instance.PlaySound(letter.ToString().ToLower());
-            SoundManager.Instance.PlaySound("Правильно", 2);
+            SoundManager.Instance.PlaySound("Правильно");
         }
     }
 
